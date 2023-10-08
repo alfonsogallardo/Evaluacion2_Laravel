@@ -3,17 +3,38 @@
 
 <div class="container py-4">
     <div class="d-flex justify-content-end">
-        <a class="btn btn-outline-primary" href="{{ route('logout') }}">Cerrar Sesión</a>
+
     </div>
 
-    <h4 class="my-4">soy el desarrollador de guugul que se va, procedo a dejar algunas pruebas que realicé</h4>
-    <hr />
+
 
     @if($errors->any())
         <div class="alert alert-danger my-4" role="alert">
             {!! implode('', $errors->all('<div>:message</div>')) !!}
         </div>
     @endif
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">ArriendAPP</a>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{route('home')}}">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('home')}}">Arriendos</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <button class="btn btn-outline-primary" href="{{ route('logout') }}">Cerrar Sesion</button>
+      </form>
+    </div>
+  </div>
+</nav>
 
 
 
