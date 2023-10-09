@@ -7,6 +7,7 @@ use App\Http\Controllers\VehiclesController;
 use App\Models\Category;
 use App\Models\User;
 use App\Models\Vehicle;
+use App\Models\Lease;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,6 +38,8 @@ Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware(
 Route::get('/list', [ListController::class, 'index'])->name('list')->middleware('auth');
 Route::get('/new', [NewController::class, 'index'])->name('new')->middleware('auth');
 Route::delete('/softdelete/{id}', 'ListController@SoftDelete')->name('softdelete');
+Route::get('/new', 'NewController@showNewArriendoForm');
+Route::post('/guardar-arriendo', [LeaseController::class, 'guardar'])->name('guardar_arriendo');
 
 
 Route::post('/categories', [CategoriesController::class, 'store'])->name('categories.store')->middleware('auth');

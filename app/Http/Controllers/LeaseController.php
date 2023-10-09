@@ -14,9 +14,11 @@ class LeaseController extends Controller
             'apellido_materno'=>$request->apellido_materno,
             'rut'=>$request->rut,
             'email'=>$request->email,
-            'patente'=>$request->patente,
+            'vehicle_id'=>$request->vehicle_id,
             'fecha_entrega'=>$request->fecha_entrega,
             'fecha_devolucion'=>$request->fecha_devolucion
         ]);
+        return redirect()->route('list')->with('success','el arriendo a sido registrado');
     }
+
 }
