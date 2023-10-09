@@ -9,11 +9,11 @@ class Lease extends Model
 {
     use HasFactory;
 
-    protected $table='lease';
+    protected $table='leases';
 
-    protected $fillable=['nombre_cliente','apellido_paterno','apellido_materno','rut','email','patente','fecha_entrega','fecha_devolucion'];
+    protected $fillable=['nombre_cliente','apellido_paterno','apellido_materno','rut','email','vehicle_id','fecha_entrega','fecha_devolucion'];
 
     public function vehicle(){
-        return $this->belongsTo(Vehicle::class, 'patente', 'patent' );
+        return $this->belongsTo(Vehicle::class, 'vehicle_id', 'id' );
     }
 }

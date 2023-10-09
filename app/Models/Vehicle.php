@@ -17,6 +17,6 @@ class Vehicle extends Model
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
     public function leases(){
-        return $this->hasMany(Lease::class, 'patente');
+        return $this->hasMany(Lease::class, 'vehicle_id');
     }
 }

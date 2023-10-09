@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('leases', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre_cliente');
+            $table->string('apellido_paterno');
+            $table->string('apellido_materno');
+            $table->string('email');
+            $table->unsignedBigInteger('vehicle_id');
+            $table->date('fecha_entrega');
+            $table->date('fecha_devolucion');
+            $table->foreign('vehicle_id')->references('id')->on('vehicles');
             $table->timestamps();
-            $table->nombre_cliente();
-            $table->apellido_paterno();
-            $table->apellido_materno();
-            $table->email();
-            $table->foreign('patente')->references('patent')->on('vehicles')->onDelete('cascade');
-            $table->fecha_entrega();
-            $table->fecha_devolucion();
-
         });
     }
 
