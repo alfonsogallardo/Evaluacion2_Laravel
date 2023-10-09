@@ -25,18 +25,31 @@ Route::group(['prefix' => '/login'], function(){
     Route::post('/', [AuthController::class, 'attemptLogin'])->name('login.attempt');
 });
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-
+Route::get('/home','HomeController@index')->name('home');
+Route::get('/list','ListController@index')->name('list');
+Route::get('/new','NewController@index')->name('new');
 Route::group(['prefix' => '/register'], function(){
     Route::get('/', [AuthController::class, 'showRegister'])->name('register');
     Route::post('/', [AuthController::class, 'storeAccount'])->name('register.store');
 });
 
 Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('auth');
+Route::get('/list', [ListController::class, 'index'])->name('list')->middleware('auth');
+Route::get('/new', [NewController::class, 'index'])->name('new')->middleware('auth');
+
+
 Route::post('/categories', [CategoriesController::class, 'store'])->name('categories.store')->middleware('auth');
 Route::post('/vehicles', [VehiclesController::class, 'store'])->name('vehicles.store')->middleware('auth');
-
+Route::post('/lease', [LeaseController::class, 'store'])->name('lease.store')->middleware('auth');
 Route::delete('/vehicles/{id}', [VehiclesController::class, 'delete'])->name('vehicles.delete')->middleware('auth');
 
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/list', function () {
+    return view('list');
+});
+Route::get('/new', function () {
+    return view('new');
+});
+
