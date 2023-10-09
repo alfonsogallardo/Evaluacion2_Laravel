@@ -12,6 +12,7 @@ class LeaseController extends Controller
             'nombre_cliente'=>$request->nombre_cliente,
             'apellido_paterno'=>$request->apellido_paterno,
             'apellido_materno'=>$request->apellido_materno,
+            'rut'=>$request->rut,
             'email'=>$request->email,
             'patente'=>$request->patente,
             'fecha_entrega'=>$request->fecha_entrega,

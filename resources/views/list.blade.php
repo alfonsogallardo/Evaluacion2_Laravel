@@ -43,6 +43,40 @@
         </div>
     </div>
 </div>
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th scop="col">Cliente</th>
+                <th scop="col">Rut</th>
+                <th scop="col">Patente</th>
+                <th scop="col">Entrega</th>
+                <th scop="col">Devolucion</th>
+                <th scop="col">Eliminar</th>
+            </tr>
+        <tbody>
+            @foreach ($leases as $key => $lease )
+                <tr>
+                    <td>{{$lease->nombre_cliente}} {{$lease->apellido_paterno}}</td>
+                    <td>{{$lease->rut}}</td>
+                    <td>{{ $lease->patente }}</td>
+                        <td>{{ $lease->fecha_entrega }}</td>
+                        <td>{{ $lease->fecha_devolucion }}</td>
+                        <td>
+                            <form action="{{ route('softDelete', $lease->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i>Eliminar</button>
+                            </form>
+                        </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
+</div>
+
+
 
 
 {{--

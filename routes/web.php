@@ -36,6 +36,7 @@ Route::group(['prefix' => '/register'], function(){
 Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('auth');
 Route::get('/list', [ListController::class, 'index'])->name('list')->middleware('auth');
 Route::get('/new', [NewController::class, 'index'])->name('new')->middleware('auth');
+Route::delete('/softdelete/{id}', 'ListController@SoftDelete')->name('softdelete');
 
 
 Route::post('/categories', [CategoriesController::class, 'store'])->name('categories.store')->middleware('auth');
