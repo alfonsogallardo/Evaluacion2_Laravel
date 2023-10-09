@@ -33,7 +33,16 @@
   </div>
 </nav>
 
-
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 text-left">
+            <h1>Arriendos</h1>
+        </div>
+        <div class="col-md-6 text-right">
+            <a href="{{ route('home') }}" class="btn btn-primary">Nuevo Arriendo</a>
+        </div>
+    </div>
+</div>
 
 
 {{--

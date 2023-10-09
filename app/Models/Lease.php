@@ -11,5 +11,9 @@ class Lease extends Model
 
     protected $table='lease';
 
-    protected $fillable=['name_client','apellido_paterno','apellido_materno','email','patente','fecha_entrega','fecha_devolucion'];
+    protected $fillable=['nombre_cliente','apellido_paterno','apellido_materno','email','patente','fecha_entrega','fecha_devolucion'];
+
+    public function vehicle(){
+        return $this->belongsTo(Vehicle::class, 'patente', 'patent' );
+    }
 }

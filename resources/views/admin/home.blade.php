@@ -34,6 +34,43 @@
 </nav>
 
 
+<div class="container-mt5">
+    <div class="row">
+        <div class="col-md-8">
+            <h1 class="text-left mb-4">Dashboard</h1>
+            <h2 class="text-left mb-4">Vehiculos existentes en cada categoria</h2>
+
+            <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Total de Vehiculos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($categories as $key => $category)
+                        <tr>
+                            <td>{{$category->name}}</td>
+                            <td>{{$category->vehicles->count()}}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body text-center">
+                <h5 class="card-title">Total arriendos registrados</h5>
+                <p class="card-text">{{$totalVehicles}}</p>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
 
 
     <section class="section-separator">
